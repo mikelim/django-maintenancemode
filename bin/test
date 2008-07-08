@@ -1,0 +1,5 @@
+#!/bin/bash
+
+export PYTHONPATH=./:./tests/testproject/:$PYTHONPATH
+
+env python ./tests/testproject/manage.py test testapp
