@@ -1,6 +1,10 @@
 from django.conf import settings
 from django.core import urlresolvers
 
+from django.conf.urls import defaults
+defaults.handler503 = 'maintenancemode.views.defaults.temporary_unavailable'
+defaults.__all__.append('handler503')
+
 class MaintenanceModeMiddleware(object):
     def process_request(self, request):
         # Check if maintenance mode is activated, if not set default to False
