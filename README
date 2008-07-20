@@ -1,0 +1,11 @@
+======================
+django-maintenancemode
+======================
+
+Django maintenance mode is a middleware that allows you to temporary shutdown
+your site for non staff users and show them a page that the site is down for
+maintenance. Logged in users having staff credentials can still fully use
+the site.
+
+For further documentation please look at: 
+http://code.google.com/p/django-maintenancemode/
