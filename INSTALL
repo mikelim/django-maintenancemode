@@ -1,0 +1,3 @@
+To install django-maintenancemode just run the following command from your shell:
+
+    python setup.py install
