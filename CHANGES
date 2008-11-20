@@ -1,7 +1,14 @@
 Changes
 =======
 
+0.9.1
+-----
+
+- Tested django-maintenancemode with django-1.0 release (following the 1.0.X release branch)
+- Bundled buildout.cfg and bootstrap with the source version of the project, allowing repeatable buildout
+- 
+
 0.9
----
+-----
 
 First release
