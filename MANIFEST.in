@@ -5,3 +5,7 @@ include LICENSE
 include CHANGES
 include MANIFEST.in
 include ez_setup.py
+recursive-include maintenancemode *
+exclude buildout.cfg
+exclude bootstrap.py
+prune testproject
