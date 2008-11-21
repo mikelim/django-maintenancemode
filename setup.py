@@ -4,7 +4,7 @@ use_setuptools()
 import os
 from setuptools import setup, find_packages
 
-version = '0.9.1'
+version = '0.9.2'
 
 def read_file(name):
     return open(os.path.join(os.path.dirname(__file__), 
@@ -24,7 +24,7 @@ setup(
     platforms = ["any"],
     url='http://code.google.com/p/django-maintenancemode/',
     download_url='',
-    packages=['maintenancemode'],
+    packages=['maintenancemode', 'maintenancemode.conf',  'maintenancemode.conf.urls', 'maintenancemode.views'],
     include_package_data = False,
     classifiers=[
             'Development Status :: 4 - Beta',
