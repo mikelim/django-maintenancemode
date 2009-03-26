@@ -1,3 +1,4 @@
+from django.core.cache import cache
 from django.conf import settings
 from django.core import urlresolvers
 
@@ -10,7 +11,7 @@ from maintenancemode.conf.settings import MAINTENANCE_MODE
 class MaintenanceModeMiddleware(object):
     def process_request(self, request):
         # Allow access if middleware is not activated
-        if not MAINTENANCE_MODE:
+        if not MAINTENANCE_MODE or not cache.get('MAINTENANCE_MODE'):
             return None
 
         # Allow access if remote ip is in INTERNAL_IPS
