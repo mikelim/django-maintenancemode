@@ -1,6 +1,10 @@
 Changes
 =======
 
+0.9.3
+-----
+- Added DISPLAY_MAINTENANCE_PAGE and MAINTENANCE_PAGE_CONTEXT configuration options.
+
 0.9.2
 -----
 - Fixed an issue with setuptools, thanks for reporting this ksato9700

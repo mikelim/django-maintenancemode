@@ -1,6 +1,7 @@
-from django.template import Context, loader
+from django.template import RequestContext, loader
 
 from maintenancemode import http
+from maintenancemode.conf.settings import MAINTENANCE_PAGE_CONTEXT
 
 def temporary_unavailable(request, template_name='503.html'):
     """
@@ -13,4 +14,6 @@ def temporary_unavailable(request, template_name='503.html'):
             The path of the requested URL (e.g., '/app/pages/bad_page/')
     """
     t = loader.get_template(template_name) # You need to create a 503.html template.
-    return http.HttpResponseTemporaryUnavailable(t.render(Context({})))
+
+    context = RequestContext(request, MAINTENANCE_PAGE_CONTEXT)
+    return http.HttpResponseTemporaryUnavailable(t.render(context))

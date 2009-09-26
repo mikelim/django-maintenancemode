@@ -43,11 +43,19 @@ they assume default values:
 MAINTENANCE_MODE
   Boolean. Enable/disable maintenance mode.
   Default: False
- 
-Some observations:
 
-* If user is logged in and staff member, the maintenance page is
-  not displayed.
+DISPLAY_MAINTENANCE_PAGE
+  Function to determine if the maintenance mode page should be displayed. Sometimes, it's a good idea
+  to enable static parts of the website to be displayed, while showing the maintenance page to the 
+  dynamic parts of the website. This function allows you to set your own custom rules:
+  
+  The default function has the following rules:
+	* If user is logged in and staff member, the maintenance page is
+	  not displayed.
 
-* If user's ip is in INTERNAL_IPS, the maintenance page is
-  not displayed.
+	* If user's ip is in INTERNAL_IPS, the maintenance page is
+	  not displayed.
+
+MAINTENANCE_PAGE_CONTEXT
+  Dictionary. The context object to pass into the maintenance page. 
+  Default: Empty dictionary {}

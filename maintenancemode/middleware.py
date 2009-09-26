@@ -5,7 +5,7 @@ from django.conf.urls import defaults
 defaults.handler503 = 'maintenancemode.views.defaults.temporary_unavailable'
 defaults.__all__.append('handler503')
 
-from maintenancemode.conf.settings import MAINTENANCE_MODE
+from maintenancemode.conf.settings import MAINTENANCE_MODE, DISPLAY_MAINTENANCE_PAGE
 
 class MaintenanceModeMiddleware(object):
     def process_request(self, request):
@@ -13,13 +13,7 @@ class MaintenanceModeMiddleware(object):
         if not MAINTENANCE_MODE:
             return None
 
-        # Allow access if remote ip is in INTERNAL_IPS
-        if request.META.get('REMOTE_ADDR') in settings.INTERNAL_IPS:
-            return None
-        
-        # Allow acess if the user doing the request is logged in and a
-        # staff member.
-        if hasattr(request, 'user') and request.user.is_staff:
+        if not DISPLAY_MAINTENANCE_PAGE(request):
             return None
         
         # Otherwise show the user the 503 page
